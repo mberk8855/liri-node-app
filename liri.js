@@ -72,17 +72,51 @@ function concerts() {
 }
 
 function songs() {
-    console.log(commands, userkeyInput)
+    // console.log(commands, userkeyInput)
+
 }
+
+// http://www.omdbapi.com/?s=grease&apikey=4721cf6b
 
 function movies() {
     console.log(commands)
     console.log(userkeyInput)
+    var queryURL = "http://www.omdbapi.com/?t=" + userkeyInput + "&apikey=4721cf6b"
+
+    axios.get(queryURL).then(
+        function (response) {
+            // If the axios was successful...
+            // Then log the body from the site!
+            console.log(response.data);
+            // console.log("")
+            
+            console.log(" ")
+            console.log("Title: ", response.data.Title);
+            console.log("Year: ", response.data.Year);
+            console.log("IMDB Rating: ", response.data.imdbRating);
+            // console.log("Rotten Tomatoes Rating: ", response.data.Ratings[1].Value);
+            console.log("Produced in: ", response.data.Country)
+            console.log("Movie Language: ", response.data.Title)
+            console.log("Plot: ", response.data.Plot)
+            console.log("Actors: ", response.data.Actors)
+            console.log(" ")
+
+
+
+        })
 }
 
-function random() {
-    console.log(commands, userkeyInput)
-}
+//                 console.log("city: ", response.data[i].venue.city + ", " + response.data[i].venue.country)
+//                 console.log("date: ", moment(response.data[i].datetime).format("MM/DD/YYYY"))
+//                 console.log(" ")
+
+
+//             }
+// }
+
+// function random() {
+//     console.log(commands, userkeyInput)
+// }
 
 
 
